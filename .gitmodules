@@ -1,6 +1,6 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "/home/jloehel/.peda"]
-	path = /home/jloehel/.peda
+[submodule ".peda"]
+	path = .peda
 	url = https://github.com/longld/peda.git
