@@ -4,13 +4,13 @@
 
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
+Xft.dpi: 120
 
 !------------------------------
 ! xterm settings
 ! -----------------------------
 
 xterm*termname: xterm-color
-xterm*faceSize: 13
 xterm*background: black
 xterm*foreground: white
 xterm*scrollbar: true
@@ -47,7 +47,8 @@ urxvt.keysym.M-C-v:           perl:clipboard:paste_escaped
 urxvt*matcher.button:         1
 
 ! Appearance
-urxvt.font:       xft:DejaVu Sans Mono:pixelsize=17
+urxvt.font:       xft:DejaVu Sans Mono:pixelsize=24
+urxvt.font:       xft:DejaVu Sans Mono:pixelsize=24
 !  - cursor
 urxvt*cursorColor: #DCDCCC
 

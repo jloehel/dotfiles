@@ -1,8 +1,4 @@
-.ssh/*.{key,pub}
-.ssh/config
-.ssh/id_rsa
-.gnupg/*.gpg
+.ssh/*
+.config/keybase/*
 .aws/config
 .aws/credentials
-.gist-vim
-

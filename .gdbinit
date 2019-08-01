@@ -1,1 +1,1 @@
-source ~/peda/peda.py
+source ~/.peda/peda.py

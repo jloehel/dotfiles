@@ -3,9 +3,10 @@ alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=au
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 
-# Alias related to cd
-alias ..='cd ..'
-alias cd..='cd ..'
+alias projects="cd ~/Projekte"
+alias Projects="cd ~/Projekte"
+alias projekte="cd ~/Projekte"
+alias Projekte="cd ~/Projekte"
 
 # Aliases related to cp/mv/rm
 alias rm='rm -i'
@@ -21,7 +22,19 @@ alias k=kubectl
 # Handy alias for the ip command
 alias ip="ip --color"
 alias ipb="ip --color --brief"
+alias eth0="ip a s eth0"
+alias wlan0="ip a s wlan0"
+alias eth0-4="ipb -4 a s eth0"
+alias eth0-6="ipb -6 a s eth0"
+alias wlan0-4="ipb -4 a s wlan0"
+alias wlan0-6="ipb -6 a s wlan0"
 
 # Misc
 alias random_string="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1"
 alias chwon='chown'
+alias j='jobs -l'
+alias h='history -f 1 | less +G'
+alias hh='history'
+alias cls='clear'
+alias term='echo $TERM'
+alias todo="vim ~/.todo"
