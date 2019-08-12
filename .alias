@@ -7,6 +7,7 @@ alias projects="cd ~/Projekte"
 alias Projects="cd ~/Projekte"
 alias projekte="cd ~/Projekte"
 alias Projekte="cd ~/Projekte"
+alias inlyse="cd ~/Projekte/inlyse/"
 
 # Aliases related to cp/mv/rm
 alias rm='rm -i'

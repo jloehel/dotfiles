@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/jloehel/.oh-my-zsh"
 ZSH_THEME="gnzh"
-plugins=(aws docker git kubectl nmap python suse terraform tmux vagrant)
+plugins=(aws docker git kubectl nmap python suse terraform tmux vagrant virtualenv)
 source $ZSH/oh-my-zsh.sh
 
 TERM=xterm-256color
