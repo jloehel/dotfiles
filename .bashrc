@@ -4,6 +4,17 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 HISTTIMEFORMAT="%F %H:%M:%S "
 
+# GO stuff
+# Where is the go binary
+export GOROOT=/usr/lib64/go/1.12
+export PATH=$PATH:$GOROOT/bin
+
+# Libraries with executables
+export GOPATH=/home/jloehel/golib
+export PATH=$PATH:$GOPATH/bin
+# My Projects
+export GOPATH=$GOPATH:/home/jloehel/Projekte/go
+
 # completion
 [[ -f /etc/profile.d/bash_completion.sh ]] && . /etc/profile.d/bash_completion.sh
 
