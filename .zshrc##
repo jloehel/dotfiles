@@ -30,4 +30,5 @@ setopt hist_verify
 setopt share_history
 
 test -s ~/.alias && . ~/.alias || true
+test -s ~/.bash_alias && . ~/.bash_alias || true
 test -s ~/.functions && . ~/.functions || true
