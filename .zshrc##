@@ -10,6 +10,16 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
+# GO stuff
+# Where is the go binary
+export GOROOT=/usr/lib64/go/1.12
+export PATH=$PATH:$GOROOT/bin
+
+# Libraries with executables
+export GOPATH=/home/jloehel/golib
+export GOPATH=$GOPATH:/home/jloehel/Projekte/go
+export PATH=$PATH:$GOPATH/bin
+
 # Allow multiple terminal sessions to all append to one zsh command history
 setopt append_history
 # Save timestamp and duration

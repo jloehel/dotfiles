@@ -1,0 +1,26 @@
+extract () {
+    if [ -f $1 ]; then
+        case $1 in
+            *.tar.gz)  tar xvzf $1   ;;
+            *.tar.bz2) tar xvjf $1   ;;
+            *.rar)     rar x $1      ;;
+            *.bz2)     bunzip2 -d $1 ;;
+            *.zip)     unzip $1      ;;
+            *.7z)      7z x $1       ;;
+            *)         echo "Ist jetzt Katze! o.0"
+        esac
+    else
+        echo "File: '$1', not found."
+    fi
+}
+
+mktar() { tar cvf   "${1%%/}.tar"      "${1%%/}/"; }
+mktgz() { tar cvzf  "${1%%/}.tar.gz"   "${1%%/}/"; }
+mktar() { tar cvjf  "${1%%/}.tar.bz2"  "${1%%/}/"; }
+
+po () {
+  popd "$@"
+  dirs -v
+}
+
+virtualenv_info () { [ $VIRTUAL_ENV ] && echo "($(basename $VIRTUAL_ENV))"; }

@@ -4,6 +4,9 @@
 # be run from within $HOME (assuming this is the root of your dotfiles)
 cd "$HOME"
 
+echo "Create some folders"
+mkdir -p Projekte/{go/{bin,pkg,src},python,bash,ruby}
+
 echo "Init submodules"
 yadm submodule update --recursive --init
 
@@ -15,7 +18,7 @@ if [ "$system_type" = "Linux" ];then
     if [ "$release_id" = "opensuse-leap" ];then
 	echo "Installing applications and build dependencies for ${pretty_name} ..."
         sudo zypper ref
-        sudo zypper in vim tmux 
+        sudo zypper in vim tmux go
     fi
 fi
 
