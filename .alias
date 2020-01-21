@@ -39,3 +39,12 @@ alias hh='history'
 alias cls='clear'
 alias term='echo $TERM'
 alias todo="vim ~/.todo"
+
+# Metasploit
+alias pattern_create='/usr/share/metasploit-framework/tools/exploit/pattern_create.rb'
+alias pattern_offset='/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb'
+
+
+# Nmap
+# Good starting with
+alias nmap_simple='sudo nmap -sS -O -Pn -sV -T4 -oX $1.xml $1'
