@@ -1,1 +1,1 @@
-/home/jloehel/.zshrc##
+.zshrc##default
