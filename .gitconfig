@@ -1,3 +1,6 @@
-[user]
-	email = juergen@loehel.de
-	name = Jürgen Löhel
+[log]
+    decorate = short
+    abbrevCommit = true
+
+[include]
+    path = .gitconfig.local
