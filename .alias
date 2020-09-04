@@ -3,11 +3,12 @@ alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=au
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 
-alias projects="cd ~/Projekte"
-alias Projects="cd ~/Projekte"
-alias projekte="cd ~/Projekte"
-alias Projekte="cd ~/Projekte"
-alias inlyse="cd ~/Projekte/inlyse/"
+alias projects="cd ~/projects"
+alias Projects="cd ~/projects"
+alias projekte="cd ~/projects"
+alias Projekte="cd ~/projects"
+alias inlyse="cd ~/projects/github.com/inlyse/"
+alias infra="cd ~/projects/github.com/inlyse/infra/ansible"
 
 # Aliases related to cp/mv/rm
 alias rm='rm -i'

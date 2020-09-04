@@ -12,13 +12,15 @@ SAVEHIST=10000
 
 # GO stuff
 # Where is the go binary
-export GOROOT=/usr/lib64/go/1.12
+export GOROOT=/usr/lib64/go/1.14
 export PATH=$PATH:$GOROOT/bin
 
 # Libraries with executables
 export GOPATH=/home/jloehel/golib
 export GOPATH=$GOPATH:/home/jloehel/Projekte/go
 export PATH=$PATH:$GOPATH/bin
+
+eval "$(pyenv init -)"
 
 # Allow multiple terminal sessions to all append to one zsh command history
 setopt append_history

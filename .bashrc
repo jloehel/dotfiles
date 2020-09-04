@@ -6,7 +6,7 @@ HISTTIMEFORMAT="%F %H:%M:%S "
 
 # GO stuff
 # Where is the go binary
-export GOROOT=/usr/lib64/go/1.12
+export GOROOT=/usr/lib64/go/1.14
 export PATH=$PATH:$GOROOT/bin
 
 # Libraries with executables

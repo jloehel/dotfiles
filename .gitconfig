@@ -4,3 +4,5 @@
 
 [include]
     path = .gitconfig.local
+[user]
+  signingkey = 54E44C4D345DD098
