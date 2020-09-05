@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/jloehel/.oh-my-zsh"
-ZSH_THEME="gnzh"
+ZSH_THEME="muse"
 plugins=(aws docker git kubectl nmap python suse terraform tmux vagrant virtualenv)
 source $ZSH/oh-my-zsh.sh
 
@@ -21,6 +21,11 @@ export GOPATH=$GOPATH:/home/jloehel/Projekte/go
 export PATH=$PATH:$GOPATH/bin
 
 eval "$(pyenv init -)"
+
+# vim stuff
+alias vim="stty stop '' -ixoff ; vim"
+# `Frozing' tty, so after any command terminal settings will be restored
+ttyctl -f
 
 # Allow multiple terminal sessions to all append to one zsh command history
 setopt append_history

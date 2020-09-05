@@ -5,7 +5,7 @@
 cd "$HOME"
 
 echo "Create some folders"
-mkdir -p Projekte/{go/{bin,pkg,src},python,bash,ruby}
+mkdir -p projects/{go/{bin,pkg,src},github.com} backups
 
 echo "Init submodules"
 yadm submodule update --recursive --init
@@ -15,16 +15,19 @@ system_type=$(uname -s)
 if [ "$system_type" = "Linux" ];then
     release_id=$(grep "^ID=\".*\"$" /etc/os-release | cut -d"=" -f2 | tr -d "\"")
     pretty_name=$(grep "^PRETTY_NAME=\".*\"$" /etc/os-release | cut -d"=" -f2 | tr -d "\"")
+	  echo "Installing applications and build dependencies for ${pretty_name} ..."
     if [ "$release_id" = "opensuse-leap" ];then
-	echo "Installing applications and build dependencies for ${pretty_name} ..."
         sudo zypper ref
-        sudo zypper in vim tmux go
+        sudo zypper in vim tmux go curl words words-british dicts
     fi
 fi
 
 if command -v vim >/dev/null 2>&1; then
   echo "Creating Backup folder for vim ..."
-  mkdir .vim/backups
+  mkdir .vim/{backups,swap,undo,spell}
+  mkdir -p ~/projects/github.com/ryanoasis
+  cd ~/projects/github.com/ryanoasis && git clone https://github.com/ryanoasis/nerd-fonts && cd nerd-fonts && bash install.sh && cd
+  mkdir  ~/.vim/thesaurus/ && curl http://www.gutenberg.org/files/3202/files/mthesaur.txt -o ~/.vim/thesaurus/mthesaur.txt
   echo "Bootstrapping vim plugins ..."
   vim '+PlugUpdate' '+qall'
 fi

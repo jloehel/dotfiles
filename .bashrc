@@ -39,3 +39,11 @@ prompt() {
   width=$(expr `tput cols` - 1)
   printf "%${width}s`tput cr`" $(pwd | sed "s:^$HOME:~:")
 }
+
+vim()
+{
+    local STTYOPTS="$(stty --save)"
+    stty stop '' -ixoff
+    command vim "$@"
+    stty "$STTYOPTS"
+}
