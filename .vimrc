@@ -7,7 +7,7 @@ endif
 call plug#begin('~/.vim/bundle')
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'altercation/vim-colors-solarized'
+Plug 'sainnhe/edge'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json', { 'for': 'json' } "json
@@ -21,12 +21,13 @@ Plug 'mhinz/vim-startify'
 Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'reedes/vim-lexical'
+Plug 'ternjs/tern_for_vim',
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
-Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nanotech/jellybeans.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -46,25 +47,22 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 "" vim-airline
 set noshowmode
-let g:airline_theme='jellybeans'
+let g:airline_theme='edge'
 let g:airline#extensions#tabline#enabled=1
 let g:airline_skip_empty_sections=1
 let g:airline_detect_spell=1
 let g:airline_symbols={}
 let g:airline_symbols.maxlinenr=''
 
-"" ctrlp
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_max_height = 20
-let g:ctrlp_show_hidden = 1
-set wildignore+=*.pyc
-set wildignore+=*_build/*
-set wildignore+=*/coverage/*
-set wildignore+=*.venv*
-set wildignore+=*.git/*
-set wildignore+=*.tox/*
-set wildignore+=*.pytest/*
-set wildignore+=*.eggs/*
+"" fzf
+let g:fzf_command_prefix = 'FZF'
+nnoremap <silent> <C-p> :FZFFiles<CR>
+let g:fzf_buffers_jump = 1
+let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit' }
+
 
 "" nerdtree
 map <C-n> :NERDTreeToggle<CR>
@@ -72,6 +70,10 @@ map <C-n> :NERDTreeToggle<CR>
 "" syntastic
 " Python checks will be done by python-mode
 let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+let g:syntastic_tex_checkers = ['lacheck', 'text/language_check']
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_javascript_eslint_exe='$(which eslint)'
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -87,7 +89,7 @@ let g:ycm_auto_hover=''
 let g:pymode = 1
 let g:pymode_doc = 0
 let g:pymode_options_max_line_length = 90
-let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace() # XXX BREAKPOINT'
+let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXX BREAKPOINT'
 let g:pymode_rope = 0
 let g:pymode_folding = 0
 
@@ -137,12 +139,15 @@ let g:lexical#spelllang = ['en_us']
 let g:lexical#thesaurus = ['~/.vim/thesaurus/mthesaur.txt',]
 let g:lexical#spellfile = ['~/.vim/spell/en.utf-8.add', '~/.vim/spell/de.utf-8.add', '~/.vim/spell/es.utf-8.add']
 let g:lexical#spell_key = '<leader>s'
-nmap <Leader>de :set spelllang=de<CR>
-nmap <Leader>es :set spelllang=es<CR>
 
-"" solarized
-set background=dark
-colorscheme solarized
+"" colorscheme
+if has('termguicolors')
+  set termguicolors
+endif
+let g:edge_style = 'neon'
+let g:edge_enable_italic = 1
+let g:edge_disable_italic_comment = 1
+colorscheme edge
 
 "" vim-startify
 " Read ~/.NERDTreeBookmarks file and takes its second column
@@ -162,6 +167,7 @@ let g:startify_lists = [
         \ { 'type': function('s:gitModified'),  'header': ['   git modified']},
         \ { 'type': function('s:nerdtreeBookmarks'), 'header': ['   NERDTree Bookmarks']}
         \]
+
 
 ""
 " Basics
@@ -326,6 +332,13 @@ let g:syntastic_rust_checkers = ['rustc']
 " Re-mappings
 let mapleader = ','
 
+" Spelling
+nmap <Leader>de :set spelllang=de<CR>
+nmap <Leader>es :set spelllang=es<CR>
+
+" Tagbar
+nmap <Leader>t :TagbarToggle<CR>
+
 " Make window navigation easier.
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -347,8 +360,7 @@ map <leader>h :bprevious<cr>
 map <leader>bd :bd<cr>
 
 " Editing
-map 4 ^
-map 0 $
+map <leader>, ^
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
 nmap <C-u> mz:m+<cr>`z
