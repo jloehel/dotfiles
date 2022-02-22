@@ -24,3 +24,15 @@ po () {
 }
 
 virtualenv_info () { [ $VIRTUAL_ENV ] && echo "($(basename $VIRTUAL_ENV))"; }
+
+compare () {
+  src=$1
+  dst=$2
+
+  if [ ! -e "$src" ] || [ ! -e $dst ];then
+    echo "src or dst dir does not exist"
+    return
+  fi
+
+  find $src -type f -exec basename {} \; | awk -v dst="$dst" '{print dst"/"$1}' | xargs -n1 | while read file;do test -f $file && { echo "$file,true"; } || { echo "$file,false"; }; done
+}
