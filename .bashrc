@@ -6,7 +6,7 @@ HISTTIMEFORMAT="%F %H:%M:%S "
 
 # GO stuff
 # Where is the go binary
-export GOROOT=/usr/lib64/go/1.14
+export GOROOT=/usr/lib64/go/1.18
 export PATH=$PATH:$GOROOT/bin
 
 # Libraries with executables
@@ -14,6 +14,32 @@ export GOPATH=/home/jloehel/golib
 export PATH=$PATH:$GOPATH/bin
 # My Projects
 export GOPATH=$GOPATH:/home/jloehel/Projekte/go
+
+eval "$(pyenv init --path)"
+
+# libpostal
+export LIBPOSTAL_DATA_DIR=/usr/share/libpostal
+
+# fzf
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jloehel/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jloehel/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/jloehel/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jloehel/mambaforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 # completion
 [[ -f /etc/profile.d/bash_completion.sh ]] && . /etc/profile.d/bash_completion.sh
