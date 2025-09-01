@@ -19,15 +19,15 @@ SAVEHIST=10000
 
 # GO stuff
 # Where is the go binary
-export GOROOT=/usr/lib64/go/1.24
+export GOROOT=/usr/lib64/go/1.25
 export GONOSUMDB=github.com/inlyse/*
 export PATH=$PATH:$GOROOT/bin
 
 # Libraries with executables
-export GOPATH=/home/jloehel/golib
-export PATH=$PATH:/home/jloehel/golib/bin
-export GOPATH=$GOPATH:/home/jloehel/Projekte/go
-export PATH=$PATH:/home/jloehel/Projekte/go/bin
+export GOPATH=$HOME/golib
+export PATH=$PATH:$HOME/golib/bin
+export GOPATH=$GOPATH:$HOME/projects/go
+export PATH=$PATH:$HOME/projects/go/bin
 
 eval "$(pyenv init --path)"
 
