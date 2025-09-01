@@ -1,0 +1,22 @@
+{
+  "languageserver": {
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+    },
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    }
+  },
+  "pyright.disableDiagnostics": true,
+  "diagnostic.enable": false,
+  "diagnostic.showUnused": false,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.parameterTypes": false,
+  "pydocstring.formatter": "google",
+  "pydocstring.templatePath": "~/.vim/py_doq/templates/",
+}

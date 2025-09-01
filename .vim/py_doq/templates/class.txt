@@ -1,0 +1,11 @@
+"""{{ name }}.
+{%- if attributes["class"]|length > 0 or attributes["instance"]|length > 0 %}
+
+Attributes:
+{%- for category, attrs in attributes.items() %}
+{%- for attr in attrs %}
+    {{ attr.name }}{% if attr.annotation %} ({{ attr.annotation }}): {{ attr.name }}{% else %}:{% endif -%}
+{% endfor %}
+{% endfor %}
+{% endif %}
+"""
