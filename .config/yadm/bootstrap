@@ -26,7 +26,6 @@ if [ "$system_type" = "Linux" ];then
           curl \
           words \
           words-british \
-          dicts \
           yarn \
           gopls \
           clang \
@@ -35,15 +34,16 @@ if [ "$system_type" = "Linux" ];then
           python313-ruff \
           python3-bandit \
           python313-isort \
+          nodejs-common \
           python313-black
     fi
 fi
 
 if command -v vim >/dev/null 2>&1; then
   echo "Creating Backup folder for vim ..."
-  mkdir .vim/{backups,swap,undo,spell}
+  mkdir -p .vim/{backups,swap,undo,spell}
   mkdir -p .config/nvim/undo
-  mkdir  ~/.vim/thesaurus/ && curl http://www.gutenberg.org/files/3202/files/mthesaur.txt -o ~/.vim/thesaurus/mthesaur.txt
+  mkdir -p  ~/.vim/thesaurus/ && curl http://www.gutenberg.org/files/3202/files/mthesaur.txt -o ~/.vim/thesaurus/mthesaur.txt
   echo "Bootstrapping vim plugins ..."
   vim '+PlugUpdate' '+qall'
 fi
