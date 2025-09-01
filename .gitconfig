@@ -1,20 +1,44 @@
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore
+  whitspace = trailing-space,space-before-tab
+
+[help]
+  autocorrect = 1
+
+[alias]
+  a = commit -a
+  down = pull --rebase --stat
+  vader = push --force
+
+[init]
+	defaultBranch = main
+
+[color]
+	ui = auto
+
+[push]
+  default = matching
+
+[apply]
+  whitespace = fix
+
 [log]
     decorate = short
     abbrevCommit = true
 
+[http]
+	postBuffer = 1048576000
+
 [include]
     path = .gitconfig.local
+
 [user]
   signingkey = 54E44C4D345DD098
-	email = 2422012+jloehel@users.noreply.github.com
+  email = 2422012+jloehel@users.noreply.github.com
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[init]
-	defaultBranch = main
-[color]
-	ui = auto
-[http]
-	postBuffer = 1048576000
