@@ -45,6 +45,9 @@ set nowrap
 " Enable the ruler
 set ruler
 
+" Disable folding
+set nofoldenable
+
 " Make the relative path automatic.
 " set autochdir
 

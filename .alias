@@ -49,3 +49,7 @@ alias pattern_offset='/usr/share/metasploit-framework/tools/exploit/pattern_offs
 # Nmap
 # Good starting with
 alias nmap_simple='sudo nmap -sS -O -Pn -sV -T4 -oX $1.xml $1'
+
+# Packaging
+alias copr="copr-cli"
+alias srpm='rpmbuild -bs --define "_sourcedir $(pwd)" --define "_srcrpmdir $(pwd)"'
