@@ -53,6 +53,19 @@ if [ "$system_type" = "Linux" ];then
           python3-isort \
           nodejs \
           black
+    fi
+    if [ "$release_id" = "rhel" ];then
+        sudo yum in \
+          vim \
+          tmux \
+          curl \
+          words \
+          yarnpkg \
+          golang-x-tools-gopls \
+          clang \
+          ctags \
+          python3-isort \
+          nodejs
       fi
 fi
 
