@@ -9,6 +9,7 @@ mkdir -p projects/{go/{bin,pkg,src},github.com} backups
 
 echo "Init submodules"
 yadm submodule update --recursive --init
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 system_type=$(uname -s)
 
@@ -37,6 +38,22 @@ if [ "$system_type" = "Linux" ];then
           nodejs-common \
           python313-black
     fi
+    if [ "$release_id" = "fedora" ];then
+        sudo yum in \
+          vim \
+          tmux \
+          curl \
+          words \
+          yarnpkg \
+          gopls \
+          clang \
+          global-ctags \
+          ruff \
+          bandit \
+          python3-isort \
+          nodejs \
+          black
+      fi
 fi
 
 if command -v vim >/dev/null 2>&1; then
